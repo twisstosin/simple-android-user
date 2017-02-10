@@ -1,8 +1,30 @@
-# simple-android-user
-
+# Simple-Android-User
+![alt tag](https://github.com/twisstosin/simple-android-user/app/src/main/res/drawable/icon.png)
 Manage Android User Data Easily
 
-# license
+#Demo
+![alt tag](https://github.com/twisstosin/simple-android-user/device_demo.gif)
+
+#Usage
+Create a reference to initialize in any activity or fragment with your user class
+```
+SimpleUserStore simpleUserStore = new SimpleUserStore(this,User.class);
+```
+
+
+To Store User, Call SimpleUserStore.storeUser(YOUR_USER_OBJECT);
+```
+//save user
+simpleUserStore.storeUser(newUser);
+```
+
+To Retrieve User, Call SimpleUserStore.getLoggedInUser();
+```
+//get user
+User user = simpleUserStore.getLoggedInUser();
+```
+
+# License
 
 Copyright 2017 Tosin Omotoyinbo
 

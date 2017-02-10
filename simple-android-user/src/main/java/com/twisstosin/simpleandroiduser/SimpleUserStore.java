@@ -11,11 +11,10 @@ import com.google.gson.Gson;
 
 public class SimpleUserStore {
 
-    private static final String USER_OBJECT = "com.audnote.USER";
-    private static final String USER_LOGGEDIN = "com.audnote.USER_LOGGEDIN";
-    private static final String USER_FINISHED_INTRO = "com.audnote.USER_INTRO";
-    private static final String USER_HINTS = "com.audnote.USER_HINTS";
-    private static final String USER_PLAY_COUNT = "com.audnote.USER_PLAY_COUNT";
+    private String USER_OBJECT = ".USER";
+    private String USER_LOGGEDIN = ".LOGGEDIN";
+    private String USER_FINISHED_INTRO = ".USER_INTRO";
+    private String USER_HINTS = ".USER_HINTS";
 
     private static final String SP_NAME = "userDetails";
     private SharedPreferences userLocalDatabase;
@@ -26,6 +25,12 @@ public class SimpleUserStore {
     public SimpleUserStore(Context context, Class<?> userClass) {
         userLocalDatabase = context.getSharedPreferences(SP_NAME,0);
         this.userClass = userClass;
+
+        USER_OBJECT = context.getApplicationContext().getPackageName()+USER_OBJECT;
+        USER_LOGGEDIN = context.getApplicationContext().getPackageName()+USER_LOGGEDIN;
+        USER_FINISHED_INTRO = context.getApplicationContext().getPackageName()+USER_FINISHED_INTRO;
+        USER_HINTS = context.getApplicationContext().getPackageName()+USER_HINTS;
+
     }
 
 
@@ -77,14 +82,7 @@ public class SimpleUserStore {
 
     public boolean isHintsViewed()
     {
-        if  (!userLocalDatabase.getBoolean(USER_HINTS, false))
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return userLocalDatabase.getBoolean(USER_HINTS, false);
     }
 
 
@@ -112,11 +110,7 @@ public class SimpleUserStore {
 
     public boolean getSplashView(){
 
-        if  (!userLocalDatabase.getBoolean(USER_FINISHED_INTRO, false)){
-            return false;
-        }else{
-            return true;
-        }
+        return userLocalDatabase.getBoolean(USER_FINISHED_INTRO, false);
     }
 
 
@@ -125,11 +119,7 @@ public class SimpleUserStore {
 
     public boolean isUserLoggedIn(){
 
-        if  (userLocalDatabase.getBoolean(USER_LOGGEDIN,false)){
-            return true;
-        }else{
-            return false;
-        }
+        return userLocalDatabase.getBoolean(USER_LOGGEDIN, false);
     }
 
 
@@ -139,7 +129,6 @@ public class SimpleUserStore {
     public boolean clearUser() {
         SharedPreferences.Editor userEditor = userLocalDatabase.edit();
         userEditor.remove(USER_OBJECT);
-        userEditor.putInt(USER_PLAY_COUNT,0);
         boolean hasUserBeenRemoved = userEditor.commit();
         setUserLoggedin(false);
 
