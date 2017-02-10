@@ -1,9 +1,9 @@
 # Simple-Android-User
-![alt tag](https://github.com/twisstosin/simple-android-user/app/src/main/res/drawable/icon.png)
+![alt tag](https://github.com/twisstosin/simple-android-user/blob/master/app/src/main/res/drawable/icon.png)
 Manage Android User Data Easily
 
 #Demo
-![alt tag](https://github.com/twisstosin/simple-android-user/device_demo.gif)
+![alt tag](https://github.com/twisstosin/simple-android-user/blob/master/device_demo.gif)
 
 #Usage
 Create a reference to initialize in any activity or fragment with your user class
