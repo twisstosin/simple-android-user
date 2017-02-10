@@ -1,6 +1,6 @@
 # Simple-Android-User
-![alt tag](https://github.com/twisstosin/simple-android-user/blob/master/app/src/main/res/drawable/icon.png)
 Manage Android User Data Easily
+![alt tag](https://github.com/twisstosin/simple-android-user/blob/master/app/src/main/res/drawable/icon.png)
 
 #Demo
 ![alt tag](https://github.com/twisstosin/simple-android-user/blob/master/device_demo.gif)
