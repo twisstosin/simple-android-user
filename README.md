@@ -5,6 +5,16 @@ Manage Android User Data Easily
 #Demo
 ![alt tag](https://github.com/twisstosin/simple-android-user/blob/master/device_demo.gif)
 
+#Importing
+Copy the simple-android-user-release.aar file to your computer and in Android Studio Goto File - New - Import Module
+Then browse to the aar file location and import.
+
+Now Goto File - Project Structure - Dependencies
+Then Click the green "+" button and click Module Dependency.
+
+You can now choose simple-android-user, apply and wait to sync.
+And you're good to go.
+
 #Usage
 Create a reference to initialize in any activity or fragment with your user class
 ```
