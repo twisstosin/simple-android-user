@@ -1,5 +1,4 @@
 # Simple-Android-User
-Manage Android User Data Easily
 ![alt tag](https://github.com/twisstosin/simple-android-user/blob/master/app/src/main/res/drawable/icon.png)
 
 #Demo
