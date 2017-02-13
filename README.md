@@ -9,6 +9,7 @@ Copy the simple-android-user-release.aar file to your computer and in Android St
 Then browse to the aar file location and import.
 
 Now Goto File - Project Structure - Dependencies
+
 Then Click the green "+" button and click Module Dependency.
 
 You can now choose simple-android-user, apply and wait to sync.
