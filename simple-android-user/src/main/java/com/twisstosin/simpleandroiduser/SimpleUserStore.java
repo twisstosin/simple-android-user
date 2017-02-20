@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 public class SimpleUserStore {
 
     private String USER_OBJECT = ".USER";
+    private String SETTINGS_OBJECT = ".SETTINGD";
     private String USER_LOGGEDIN = ".LOGGEDIN";
     private String USER_FINISHED_INTRO = ".USER_INTRO";
     private String USER_HINTS = ".USER_HINTS";
@@ -30,7 +31,7 @@ public class SimpleUserStore {
         USER_LOGGEDIN = context.getApplicationContext().getPackageName()+USER_LOGGEDIN;
         USER_FINISHED_INTRO = context.getApplicationContext().getPackageName()+USER_FINISHED_INTRO;
         USER_HINTS = context.getApplicationContext().getPackageName()+USER_HINTS;
-
+        SETTINGS_OBJECT = context.getApplicationContext().getPackageName()+SETTINGS_OBJECT;
     }
 
 
@@ -54,6 +55,36 @@ public class SimpleUserStore {
         return checkPost;
     }
 
+    //To store user and settings together.
+
+    public Boolean storeUser(Object userObject, Object settingsObject)
+    {
+        SharedPreferences.Editor userEditor = userLocalDatabase.edit();
+
+        Gson gson = new Gson();
+        String gsonUser = gson.toJson(userObject);
+        String gsonSettings = gson.toJson(settingsObject);
+        userEditor.putString(USER_OBJECT,gsonUser);
+        userEditor.putString(SETTINGS_OBJECT,gsonSettings);
+
+        Boolean checkPost = userEditor.commit();
+        if(checkPost) {
+            setUserLoggedin(true);
+            setHints(true);
+        }
+        return checkPost;
+    }
+
+    public Boolean storeSettings(Object userObject)
+    {
+        SharedPreferences.Editor userEditor = userLocalDatabase.edit();
+
+        Gson gson = new Gson();
+        String gsonSettings = gson.toJson(userObject);
+        userEditor.putString(SETTINGS_OBJECT,gsonSettings);
+
+        return userEditor.commit();
+    }
 
     //If there is a saved user.
     //Returns the user object.
